@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Groundfloor.io App Authorization</title>
+	<link rel="stylesheet" TYPE="text/css" HREF="static/css/style.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>Groundfloor.io App Authorization</h1>
+	<p id="msg">{{ .app }} wants to access your groundfloor.io account to let you chat with your friends in-game! If you'd like to let them, log in and agree below.</p>
+	<form id="login" action="/auth" method="post">
+		<label>Username:</label><input id="username" name="username" type="text" value="{{ .username }}" data-username="{{ .username }}" />
+		<label>Password:</label><input id="password" name="password" type="password" />
+		<input type="submit" value="Login and Allow Access" />
+	</form>
+
+	<!-- Script includes -->
+	<script src="/static/js/auth.js"></script>
+	<script>
+		$(document).ready(function() {
+			Auth.init();
+		});
+	</script>
+
+</body>
+</html>
